@@ -76,5 +76,5 @@ with socket.socket() as serverSocket:
 
     while True:
         (clientConnection, clientAddress) = serverSocket.accept()
-        handle_client(clientConnection, clientAddress)
+        handle_client(clientConnection)
         print(f"Sent data to {clientAddress}\n")
