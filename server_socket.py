@@ -56,7 +56,9 @@ def handle_client(connection):
         print(f"request_method = {request_method}")
         print(f"status = {status}")
         res, res2 = method_checking(status)
-        request_source_all = client_data[4].split(":")
+        for host in client_data:
+            if "Host" in host:
+                request_source_all = host.split(":")
         request_source = (request_source_all[1], int(request_source_all[2]))
         headers = '\r\n'.join(client_data[1:])
         response_to_client = f'HTTP/1.1 {res} {res2} {headers}'
